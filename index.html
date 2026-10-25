@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<htm1 lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content= "width=device-width", initial-scale="1.0">
+    <tittle>Coffee Shop Management System</tittle>
+    
+     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4e9df;
+            color: #3e2723;
+        }
+
+        header {
+            background: #4b2e2b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            width: 850px;
+            max-width: 95%;
+            min-height: 470px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px #0002;
+        }
+       
+         
+
+         .form-box {
+            width: 50%;
+            padding: 35px 30px;
+         }
+
+         h2 {
+            text-align: center;
+            margin-top: 0;
+         }
+
+         input {
+            width: 100%;
+            padding: 12px;
+            margin: 9px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+         }
+
+         button {
+            width: 100%;
+            padding: 12px;
+            margin: 12px;
+            background: #6f4e37;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+         }
+
+         button:hover {
+            background: #4b2e2b;
+         }
+
+         p {
+            text-align: center;
+            font-size: 14px;
+         }
+
+        a {
+            color: #8b5e3c;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 650px) {
+            .container {
+                flex-direction: column;
+                margin: 20px auto;
+            }
+
+            .photo {
+                width:100%;
+                min-height: 180px;
+            }
+
+            .form-box {
+                width: 100%;
+            }
+
+            header {
+                font-size: 23px;
+            }
+
+
+        }
+  </style>
+</head>
+
+<body>
+
+    <header>Coffee Shop Management System</header>
+
+    <div class="container">
+        
+        <div class="photo">
+          Fresh Coffee, Happy Days!
+      </div>
+      
+      <div class="form-box">
+
+
+        <form id="loginForm" novalidate>
+            <h2>Login</h2>
+                
+            <input type="email" placeholder="Email Address" required>
+            <input type="password" placeholder="Password" required>
+
+            <button type="submit">Login</button>
+
+            <p>
+                <a href="#" onclick="showForm('forgotForm'); return false;">
+                    Forgot Password?
+                </a>
+                </p>
+
+            <p>
+                Don't have an account?
+                <a href="#" onclick="showForm('registerForm'); return false;">
+                    Create Account
+                </a>    
+        </p>
+        </form>
+
+        <form id="registerForm" style="display: none;" novalidate>
+            <h2>Create Account</h2>
+
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <input type="password" placeholder="Create Password"
+                      minlength="8" required>
+
+             <input type="password" placeholder="Confirm Password"
+                      minlength="8" required>
+                      
+            <button type="submit">Create Account</button>
+
+        </p>
+        
+            Already have an account?
+            <a href="#" onclick="showForm('loginForm'); return false;">
+               Login
+            </a>
+        </p>
+        </form>
+
+        <form id="forgotForm" style="display: none;" novalidate>
+            <h2>Forgot Password</h2>
+
+            <p>Enter your email address to request a password reset.</p>
+
+            <input type="email" placeholder="Your Email Address" required>
+
+            <button type="submit">Reset Password</button>
+            <p>
+               
+                <a href="#" onlick="showForm('loginForm'); return false;">
+                Back to Login
+         </a>
+        </p>
+        </form>
+
+    </div>
+    </div>
+
+
+<script>
+    function showForm(formId) {
+    document.getElementById("loginForm").classList.add("hidden");
+    document.getElementById("registerForm").classList.add("hidden");
+    document.getElementById("forgotForm").classList.add("hidden");
+
+    document.getElementById(formId).classList.remove("hidden");
+}
+
+    document.getElementById("registerForm").addEventListener("submit",
+        function(event) {
+            event.preventDefault();
+
+            const passwords = this.querySelectorAll(
+                'input[type="password"]'
+            );
+
+            if (passwords[0].value !== passwords[1].value) {
+                alert("Password do not match!");
+                return;
+            }
+
+            alert ("Connect this form to your account registration system.");
+
+        }
+    );        
+    
+  document.getElementById("forgotForm").addEventListener("submit",
+    function(event) {
+        event.preventDefault();
+        alert("Connect this form to your password reset service.");
+    }
+  );
+
+  </script>
+
+  </body>
+  </htm1>
